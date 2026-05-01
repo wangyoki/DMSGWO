@@ -71,35 +71,7 @@ function [Alpha_score,Alpha_pos,Convergence_curve] = DMSGWO(SearchAgents_no,Max_
 
         for i = n1+1:SearchAgents_no
             for j = 1:dim
-                r1 = rand(); 
-                r2 = rand();
-                A1 = 2 * a * r1 - a;
-                C1 = 2 * r2;
-                D_alpha = abs(C1 * Alpha_pos(j) - Positions(i,j));
-                  X1 = Alpha_pos(j) - A1 * D_alpha;
-
-                r1 = rand();
-                r2 = rand();
-                A2 = 2 * a * r1 - a;
-                C2 = 2 * r2;
-                D_beta = abs(C2 * Beta_pos(j) - Positions(i,j));
-                  X2 = Beta_pos(j) - A2 * D_beta;
-    
-                r1 = rand();
-                r2 = rand();
-                A3 = 2 * a * r1 - a;
-                C3 = 2 * r2;
-                D_delta = abs(C3 * Delta_pos(j) - Positions(i,j));
-                  X3 = Delta_pos(j) - A3 * D_delta;
-
-                % Positions(i, j) = (X1 + X2 + X3) / 3;  
-                    X = (X1 + X2 + X3) / 3;
-                    theta = 3; 
-                    epsilon = 1e-8;
-                    phi = (gwo_fit(i) / (f_avg + epsilon))^theta;
-                    w = 0.5 + 0.5 * cos(pi * t / Max_Iteration);
-                    Positions(i,j) = (1 - w) * X +  w * X * phi;
-
+               %%
             end
         end
 
